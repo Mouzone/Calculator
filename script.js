@@ -33,12 +33,23 @@ function operate(a, operator, b){
 }
 
 function updateDisplay(id){
+
     const display = document.querySelector('.display')
-    if (display.textContent === null){
-        display.textContent = id
+
+    if (id == '='){
+        display.textContent = operate(display.textContent[0], display.textContent[1], display.textContent[2])
     }
     else{
-        display.textContent = display.textContent + id
+        if (display.textContent == null){
+            display.textContent = id
+        }
+        else{
+            display.textContent = display.textContent + id
+        }
+    }
+
+    if (id =='C'){
+        display.textContent = ''
     }
 }
 
