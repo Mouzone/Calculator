@@ -1,12 +1,27 @@
+.page{
+    display: flex;
+    justify-content: center;
+
+}
 .calculator{
     display: flex;
     flex-direction: column;
+    padding: 25px;
+    height: 750px;
+    width: 550px;
 }
 
 .display{
-    width: 500px;
-    height: 200px;
+    width: 550px;
+    height: 100px;
     border: solid;
+    margin-bottom:20px;
+}
+
+button{
+    width: 125px;
+    height: 50px;
+    margin: 3px;
 }
 
 .buttons{
