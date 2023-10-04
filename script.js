@@ -31,3 +31,20 @@ function operate(a, operator, b){
         return divide(a,b)
     }
 }
+
+function updateDisplay(id){
+    const display = document.querySelector('.display')
+    if (display.textContent === null){
+        display.textContent = id
+    }
+    else{
+        display.textContent = display.textContent + id
+    }
+}
+
+const buttons = document.querySelectorAll('button')
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        updateDisplay(button.id)
+    })
+});
