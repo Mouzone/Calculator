@@ -35,10 +35,22 @@ function operate(a, operator, b){
 function updateDisplay(id){
 
     const display = document.querySelector('.display')
+    var pattern = /(-?\d+)([+\-*\/])(-?\d+)/;
+    var matches = display.textContent.match(pattern);
 
-    if (id == '='){
-        display.textContent = operate(display.textContent[0], display.textContent[1], display.textContent[2])
+    if (id == '=' || (matches && (id == '+' || id == '-' || id == '*'|| id =='/'))){
+        var num1 = parseFloat(matches[1]); // Convert the first number to a floating-point number
+        var operator = matches[2]; // Operator as a string
+        var num2 = parseFloat(matches[3]); // Convert the second number to a floating-point number
+        
+        if (id == '='){
+            display.textContent = operate(num1, operator, num2)
+        }
+        else{
+            display.textContent = operate(num1, operator, num2) + id
+        }
     }
+
     else{
         if (display.textContent == null){
             display.textContent = id
@@ -47,7 +59,7 @@ function updateDisplay(id){
             display.textContent = display.textContent + id
         }
     }
-
+    
     if (id =='C'){
         display.textContent = ''
     }
