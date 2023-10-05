@@ -11,6 +11,9 @@ function multiply(a,b){
 }
 
 function divide(a,b){
+    if (b==0){
+        return "Error"
+    }
     return a / b
 }
 
@@ -59,11 +62,18 @@ function updateDisplay(id){
             display.textContent = display.textContent + id
         }
     }
-    
+
     if (id =='C'){
         display.textContent = ''
     }
+
+    if (display.textContent.length >= 11){
+        display.textContent = "Error"
+    }
 }
+//invalid input
+//handle decimals
+
 
 const buttons = document.querySelectorAll('button')
 buttons.forEach(button => {
